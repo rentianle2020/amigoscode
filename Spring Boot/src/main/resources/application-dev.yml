@@ -1,0 +1,41 @@
+app:
+  useFakeCustomerRepo: false
+
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: never
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lipstick?serverTimezone=UTC
+    username: root
+    password: 1028
+  jpa:
+    show-sql: true #显示Hibernate执行的sql
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  main:
+    banner-mode: off
+
+info:
+  app:
+    name: Test SpringBoot
+    version: 1.0.0
+  company:
+    name: Tyler's Company
+  author:
+    name: Tyler
+    age: 22
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'health,info,prometheus'
+  endpoint:
+    health:
+      show-details: always
